@@ -19,7 +19,7 @@ namespace GeneralStoreAPI.Controllers
             _db = db;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateCustomer(CustomerEdit newCustomer)
+        public async Task<IActionResult> CreateCustomer([FromForm]CustomerEdit newCustomer)
         {
             Customer customer = new Customer()
             {
@@ -35,7 +35,7 @@ namespace GeneralStoreAPI.Controllers
         {
             var customers = await _db.Customers.ToListAsync();
             return Ok(customers);
-            
+
         }
     }
 }
